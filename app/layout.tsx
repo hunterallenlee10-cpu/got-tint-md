@@ -23,7 +23,7 @@ export const viewport: Viewport = { themeColor: "#07090A", colorScheme: "dark" }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${saira.variable} ${manrope.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${saira.variable} ${manrope.variable}`}>
       <body>
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-lime focus:px-5 focus:py-3 focus:font-semibold focus:text-bg">
           Skip to content

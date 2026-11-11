@@ -122,6 +122,24 @@ body {
   animation-play-state: paused;
 }
 
+/* Tint Builder: CSS-only step slides and modal entrance */
+@keyframes step-in-next {
+  from { opacity: 0; transform: translateX(28px); }
+}
+@keyframes step-in-back {
+  from { opacity: 0; transform: translateX(-28px); }
+}
+@keyframes modal-fade {
+  from { opacity: 0; }
+}
+@keyframes modal-rise {
+  from { opacity: 0; transform: translateY(24px); }
+}
+.step-in-next { animation: step-in-next 0.38s var(--ease-film) both; }
+.step-in-back { animation: step-in-back 0.38s var(--ease-film) both; }
+.modal-fade { animation: modal-fade 0.25s ease-out both; }
+.modal-rise { animation: modal-rise 0.35s var(--ease-film) both; }
+
 /* Hide native scrollbar on horizontal chip rows */
 .no-scrollbar {
   scrollbar-width: none;
@@ -134,7 +152,11 @@ body {
   html {
     scroll-behavior: auto;
   }
-  .marquee-track {
+  .marquee-track,
+  .step-in-next,
+  .step-in-back,
+  .modal-fade,
+  .modal-rise {
     animation: none;
   }
   *,

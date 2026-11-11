@@ -52,8 +52,8 @@ export const mapsUrl =
   encodeURIComponent("9000A Edgeworth Drive, Capitol Heights, MD 20743");
 
 export const mapsEmbedUrl =
-  "https://www.google.com/maps?q=" +
+  "https://maps.google.com/maps?q=" +
   encodeURIComponent("9000A Edgeworth Drive, Capitol Heights, MD 20743") +
-  "&output=embed";
+  "&z=17&output=embed";
 
 export const fullAddress = `${business.address.street}, ${business.address.city}, ${business.address.state} ${business.address.zip}`;
