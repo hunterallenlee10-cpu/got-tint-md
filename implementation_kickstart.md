@@ -52,7 +52,7 @@ No em dashes or double hyphens. No hype words. No invented facts, prices, film b
 
 - [x] Phase 1: scaffold, design tokens, fonts, promo bar, nav, hero with the tint wipe, footer
 - [x] Phase 2: "3 ways to get tinted", Shade Visualizer with the traced window mask, legal strip (laws looked up and cited)
-- [ ] Phase 3: services bento, Our Work gallery with filters, lightbox and marquee
+- [x] Phase 3: services bento, Our Work gallery with filters, lightbox and marquee
 - [ ] Phase 4: visit the shop, how it works, $99 offer band, sample reviews, FAQ, final CTA
 - [ ] Phase 5: Tint Builder modal, every CTA wired with pre-selects, prefilled SMS, mobile sticky bar, `/contact`
 - [ ] Phase 6: metadata, OG image, favicon, JSON-LD, noindex, image optimization, Lighthouse pass
