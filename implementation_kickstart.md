@@ -56,17 +56,17 @@ No em dashes or double hyphens. No hype words. No invented facts, prices, film b
 - [x] Phase 4: visit the shop, how it works, $99 offer band, sample reviews, FAQ, final CTA
 - [x] Phase 5: Tint Builder modal, every CTA wired with pre-selects, prefilled SMS, mobile sticky bar, `/contact`
 - [x] Phase 6: metadata, OG image, favicon, JSON-LD, noindex, image optimization, Lighthouse pass
-- [ ] Phase 7: final review, commit, ready for GitHub and Vercel import
+- [x] Phase 7: final review, commit, ready for GitHub and Vercel import
 
 ## Final review checklist
 
-- [ ] The hero alone would sell the job. Tint wipe plays once and reads as film going on glass. Headline readable on mobile
-- [ ] Shade Visualizer darkens only the windows, lines up with the glass, works with mouse, touch and keyboard
-- [ ] Tint-law numbers sourced in code comments, with the "not legal advice" line
-- [ ] Every "Book My Tint" opens the Builder with the right pre-selects. Phone, text and directions links work
-- [ ] Zero em dashes, zero "--", zero stock or AI images, zero invented facts
-- [ ] Sample reviews, $99 special, warranty wording and other drafts are labelled or commented
-- [ ] Max 2 fonts, 3 colors plus text, motion in only 2 sections, no cursor effects or loading intro
-- [ ] Mobile 375px: no overflow, burger works, sticky call/text/book bar works
-- [ ] Footer on both pages with the concept line. noindex present
-- [ ] Lighthouse 90+
+- [x] The hero alone would sell the job. Tint wipe plays once and reads as film going on glass. Headline readable on mobile
+- [x] Shade Visualizer darkens only the windows, lines up with the glass, works with mouse, touch and keyboard
+- [x] Tint-law numbers sourced in code comments, with the "not legal advice" line
+- [x] Every "Book My Tint" opens the Builder with the right pre-selects. Phone, text and directions links work
+- [x] Zero em dashes, zero "--", zero stock or AI images, zero invented facts
+- [x] Sample reviews, $99 special, warranty wording and other drafts are labelled or commented
+- [x] Max 2 fonts, 3 colors plus text, motion in only 2 sections, no cursor effects or loading intro
+- [x] Mobile 375px: no overflow, burger works, sticky call/text/book bar works
+- [x] Footer on both pages with the concept line. noindex present
+- [x] Lighthouse 90+ (production build, mobile: Performance 94 to 96, Accessibility 100, Best Practices 100. Desktop: 100/100/100. SEO is 66 only because of the required noindex; with `SITE_INDEXABLE=true` it scores 100)

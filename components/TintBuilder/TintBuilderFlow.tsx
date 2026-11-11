@@ -169,7 +169,7 @@ export function TintBuilderFlow({ preset = {}, inline = false }: { preset?: Buil
           {step === "when" && <StepWhen s={s} set={set} showErrors={showErrors} />}
           {step === "info" && <StepInfo s={s} set={set} showErrors={showErrors} phoneOk={validPhone(s.phone)} />}
         </div>
-        <p role="alert" className="mt-4 min-h-5 text-sm text-[#f0b46a]">
+        <p role="alert" className="mt-4 min-h-5 text-sm text-lime">
           {pickMsg}
         </p>
       </div>

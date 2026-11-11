@@ -13,7 +13,7 @@ const cardBase =
   "relative flex cursor-pointer items-center gap-4 rounded-[12px] border border-line bg-white/[0.02] p-4 transition-colors hover:border-white/25 has-[:checked]:border-lime has-[:checked]:bg-lime/[0.07] has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-lime";
 
 const inputCls =
-  "h-12 w-full rounded-[10px] border border-line bg-bg px-4 text-base text-ink placeholder:text-muted/70 focus:border-lime focus:outline-none aria-[invalid=true]:border-[#e5a35a]";
+  "h-12 w-full rounded-[10px] border border-line bg-bg px-4 text-base text-ink placeholder:text-muted/70 focus:border-lime focus:outline-none aria-[invalid=true]:border-lime";
 
 function Tick() {
   return (
@@ -32,7 +32,7 @@ function Field({ label, id, error, hint, children }: { label: string; id: string
       </label>
       {children}
       {error && (
-        <p id={`${id}-err`} className="mt-2 text-sm text-[#f0b46a]">
+        <p id={`${id}-err`} className="mt-2 text-sm text-lime">
           {error}
         </p>
       )}
@@ -138,7 +138,12 @@ export function StepShade({ s, set }: StepProps) {
         {shades.map((sh) => (
           <label key={sh.vlt} className={`${cardBase} flex-col gap-2 p-3`}>
             <input type="radio" name="shade" className="sr-only" checked={s.shade === sh.vlt} onChange={() => set({ shade: sh.vlt })} />
-            <span aria-hidden className="h-14 w-full rounded-[8px] border border-white/10 bg-gradient-to-br from-[#8fb7c4] to-[#4d6f7a]" style={{ boxShadow: `inset 0 0 0 999px rgba(3,4,5,${sh.overlay})` }} />
+            {/* A crop of real glass from photo 07, darkened to each stop. */}
+            <span
+              aria-hidden
+              className="h-14 w-full rounded-[8px] border border-white/10 bg-[url(/images/07-teal-jeep-wrangler-rubicon-side-BEST.webp)] bg-[length:520px_auto] bg-[position:-262px_-150px]"
+              style={{ boxShadow: `inset 0 0 0 999px rgba(3,4,5,${sh.overlay})` }}
+            />
             <span className="display text-[24px] leading-none text-ink">{sh.vlt}%</span>
             {sh.vlt === 5 && <span className="-mt-1 text-[11px] text-muted">limo</span>}
           </label>
