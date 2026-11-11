@@ -55,7 +55,7 @@ No em dashes or double hyphens. No hype words. No invented facts, prices, film b
 - [x] Phase 3: services bento, Our Work gallery with filters, lightbox and marquee
 - [x] Phase 4: visit the shop, how it works, $99 offer band, sample reviews, FAQ, final CTA
 - [x] Phase 5: Tint Builder modal, every CTA wired with pre-selects, prefilled SMS, mobile sticky bar, `/contact`
-- [ ] Phase 6: metadata, OG image, favicon, JSON-LD, noindex, image optimization, Lighthouse pass
+- [x] Phase 6: metadata, OG image, favicon, JSON-LD, noindex, image optimization, Lighthouse pass
 - [ ] Phase 7: final review, commit, ready for GitHub and Vercel import
 
 ## Final review checklist

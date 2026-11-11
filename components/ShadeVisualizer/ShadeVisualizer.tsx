@@ -16,6 +16,8 @@ export function ShadeVisualizer() {
   const reduce = useReducedMotion();
   const panelRef = useRef<HTMLDivElement>(null);
   const inView = useInView(panelRef, { once: true, amount: 0.5 });
+  // Only fetch the photo when the panel gets close, so it never competes with the hero.
+  const near = useInView(panelRef, { once: true, margin: "800px 0px" });
   const touched = useRef(false);
 
   const pos = useMotionValue(0);
@@ -82,7 +84,7 @@ export function ShadeVisualizer() {
         <div ref={panelRef} className="mt-12 grid gap-5 lg:mt-16 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-6">
           <div className="glass overflow-hidden">
             <div className="relative">
-              <JeepWindows opacity={opacity} view={narrow ? VIEW_TIGHT : VIEW_WIDE} />
+              <JeepWindows opacity={opacity} view={narrow ? VIEW_TIGHT : VIEW_WIDE} load={near} />
               <span className="absolute left-3 top-3 rounded-full border border-white/10 bg-bg/70 px-3 py-1.5 text-xs font-semibold text-ink backdrop-blur-md">
                 Jeep Wrangler Rubicon · our work
               </span>
@@ -110,10 +112,10 @@ export function ShadeVisualizer() {
                   <strong className="font-semibold">{shade.vlt}%:</strong> {shade.line.charAt(0).toLowerCase() + shade.line.slice(1)}
                 </span>
               </p>
-              <dl className="mt-7 grid gap-4">
+              <div className="mt-7 grid gap-4">
                 <Meter label="Privacy" value={shade.privacy} />
                 <Meter label="Night visibility" value={6 - shade.privacy} />
-              </dl>
+              </div>
             </div>
             <div className="mt-8">
               <BookButton preset={{ shade: shade.vlt }} size="lg" arrow className="w-full sm:w-auto">
@@ -135,10 +137,10 @@ export function ShadeVisualizer() {
 function Meter({ label, value }: { label: string; value: number }) {
   return (
     <div>
-      <div className="flex justify-between text-sm">
-        <dt className="text-muted">{label}</dt>
-        <dd className="sr-only">{value} out of 5</dd>
-      </div>
+      <p className="text-sm text-muted">
+        {label}
+        <span className="sr-only">: {value} out of 5</span>
+      </p>
       <div aria-hidden className="mt-2 grid grid-cols-5 gap-1.5">
         {[1, 2, 3, 4, 5].map((n) => (
           <span key={n} className={`h-1.5 rounded-full transition-colors duration-300 ${n <= value ? "bg-lime" : "bg-white/10"}`} />

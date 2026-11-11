@@ -7,16 +7,41 @@ import { Nav } from "@/components/sections/Nav";
 import { Footer } from "@/components/sections/Footer";
 import { MobileBar } from "@/components/sections/MobileBar";
 import { BackToTop } from "@/components/sections/BackToTop";
+import { localBusinessJsonLd } from "@/lib/jsonld";
 import "./globals.css";
 
 const saira = Saira_Condensed({ subsets: ["latin"], weight: ["700", "800"], variable: "--font-saira", display: "swap" });
 const manrope = Manrope({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-manrope", display: "swap" });
 
+// Set NEXT_PUBLIC_SITE_URL in Vercel once the preview has its final URL.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000");
+
+const indexable = process.env.SITE_INDEXABLE === "true";
+
+const title = "Got Tint? | Window Tinting in Capitol Heights, MD · Mobile Tint in MD, DC & VA";
+const description =
+  "Pro window tint for cars, homes, businesses and boats. Come to our Capitol Heights shop or we come to you across Maryland, DC and Virginia. 18+ years. Open 9 to 7, every day.";
+
 export const metadata: Metadata = {
-  title: "Got Tint? | Window Tinting in Capitol Heights, MD · Mobile Tint in MD, DC & VA",
-  description:
-    "Pro window tint for cars, homes, businesses and boats. Come to our Capitol Heights shop or we come to you across Maryland, DC and Virginia. 18+ years. Open 9 to 7, every day.",
-  robots: { index: false, follow: false },
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  alternates: { canonical: "/" },
+  // Spec site: concept preview only, so it never competes with the owner's live site.
+  // When the owner signs off and this goes live on his domain, set SITE_INDEXABLE=true.
+  robots: indexable ? { index: true, follow: true } : { index: false, follow: false, googleBot: { index: false, follow: false } },
+  openGraph: {
+    type: "website",
+    siteName: "Got Tint?",
+    title,
+    description,
+    url: "/",
+    locale: "en_US",
+  },
+  twitter: { card: "summary_large_image", title, description },
+  formatDetection: { telephone: false },
 };
 
 export const viewport: Viewport = { themeColor: "#07090A", colorScheme: "dark" };
@@ -36,7 +61,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <MobileBar />
           <BackToTop />
         </BookingProvider>
-        <Analytics />
+        {process.env.VERCEL && <Analytics />}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd(siteUrl)) }}
+        />
       </body>
     </html>
   );

@@ -17,7 +17,7 @@ export const VIEW_TIGHT = { x: 0, y: 170, w: 610, h: 400 };
 
 type View = typeof VIEW_WIDE;
 
-export function JeepWindows({ opacity, view = VIEW_WIDE }: { opacity: MotionValue<number>; view?: View }) {
+export function JeepWindows({ opacity, view = VIEW_WIDE, load = true }: { opacity: MotionValue<number>; view?: View; load?: boolean }) {
   return (
     <svg
       viewBox={`${view.x} ${view.y} ${view.w} ${view.h}`}
@@ -36,7 +36,8 @@ export function JeepWindows({ opacity, view = VIEW_WIDE }: { opacity: MotionValu
           <stop offset="0.45" stopColor="#fff" stopOpacity="0" />
         </linearGradient>
       </defs>
-      <image href="/images/07-teal-jeep-wrangler-rubicon-side-BEST.webp" x="0" y="0" width="838" height="837" />
+      <rect x="0" y="0" width="838" height="837" fill="#111517" />
+      {load && <image href="/images/07-teal-jeep-wrangler-rubicon-side-BEST.webp" x="0" y="0" width="838" height="837" />}
       <g clipPath="url(#jeep-glass)">
         <motion.rect x="0" y="200" width="600" height="150" fill="#030405" style={{ opacity }} />
         {/* keep a hint of reflection on top of the film, like real glass */}

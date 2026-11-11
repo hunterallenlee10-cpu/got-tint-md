@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     // Spec site: keep it out of search so it never competes with gottintmd.com.
+    // Set SITE_INDEXABLE=true only when this becomes the owner's live site.
+    if (process.env.SITE_INDEXABLE === "true") return [];
     return [{ source: "/:path*", headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }] }];
   },
 };

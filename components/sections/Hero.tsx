@@ -100,7 +100,7 @@ export function Hero() {
             <CollageCard
               photo={photos.p07}
               className="!absolute inset-0 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.9)] lg:inset-auto lg:left-0 lg:top-[15%] lg:aspect-[6/5] lg:w-[72%]"
-              sizes="(min-width: 1024px) 440px, 100vw"
+              sizes="(min-width: 1024px) 440px, calc(100vw - 40px)"
               objectPosition="40% 38%"
               priority
             >

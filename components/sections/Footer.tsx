@@ -23,7 +23,7 @@ export function Footer() {
               {business.phone.display}
             </a>
             <p className="mt-2 text-sm text-muted">
-              Call or text. Also: <a href={business.phone2.tel} className="text-ink hover:text-lime">{business.phone2.display}</a>
+              Call or text. Also: <a href={business.phone2.tel} className="text-ink underline decoration-white/30 underline-offset-2 hover:text-lime">{business.phone2.display}</a>
             </p>
             <div className="mt-6 flex gap-2">
               <a href={business.social.facebook} target="_blank" rel="noopener noreferrer" aria-label="Got Tint on Facebook" className="grid h-11 w-11 place-items-center rounded-full border border-line text-ink transition-colors hover:border-lime hover:text-lime">
