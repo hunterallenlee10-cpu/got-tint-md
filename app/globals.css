@@ -44,6 +44,7 @@ body {
   outline-offset: 3px;
 }
 
+@layer components {
 /* Smoked glass card */
 .glass {
   position: relative;
@@ -90,6 +91,8 @@ body {
   line-height: 0.92;
   letter-spacing: -0.005em;
   text-transform: none;
+}
+
 }
 
 /* Lime underline that grows on hover (services tiles, links) */
